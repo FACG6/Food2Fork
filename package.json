@@ -1,0 +1,22 @@
+{
+  "name": "food2fork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACG6/Food2Fork.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACG6/Food2Fork/issues"
+  },
+  "homepage": "https://github.com/FACG6/Food2Fork#readme"
+}
