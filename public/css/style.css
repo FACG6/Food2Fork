@@ -1,12 +1,6 @@
 body{
     background-color: #bdc3c7;
 }
-.popUp{
-    display: none;
-}
-.popUpadd{
-    display: inline;
-}
 .contaner{
     display: flex;
     height: 100vh;
@@ -45,7 +39,6 @@ body{
     margin-right: 5px;
     font-size: 15px;
     font-weight: 900;
-
 }
 .submitButton{
     height: 70%;
