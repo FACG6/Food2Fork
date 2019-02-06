@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const fs = require('fs');
 const path = require('path');
 const querystring = require('querystring');
@@ -17,7 +19,6 @@ const handelHomePage = (request, response) => {
 const handelPublicPage = (request, response) => {
     let endpint = request.url;
     let extention = path.extname(endpint).substr(1);
-    // console.log(extention)
     const contentType = {
         js: "text/javascript",
         css: "text/css",
@@ -44,24 +45,24 @@ const handelHttpRequest = (request, response) => {
     request.on('data', (chanck) => {
         allData += chanck;
     })
-    let paresBody='';
+    let paresBody = '';
     request.on('end', () => {
         let convertedData = JSON.stringify(allData);
-        console.log(allData)
-        console.log(convertedData)
-        
-         requesthttp(`https://www.food2fork.com/api/search?key=200d285938753c0a75c05696eff29466&q=${allData}`, (err, res, body) => {
-       paresBody = JSON.parse(body);
-     if(err){
-        response.writeHead(500, { 'Content-Type': 'text/html' })
-        response.end('<h2>Server error</h2>');
-     }else{
+        // console.log(allData)
+        // console.log(convertedData)
 
-         response.writeHead(200, { 'Content-Type': 'application/json' })
-         response.end(JSON.stringify(paresBody));
-     }
+        requesthttp(`https://www.food2fork.com/api/search?key=${process.env.api_key}&q=${allData}`, (err, res, body) => {
+            paresBody = JSON.parse(body);
+            if (err) {
+                response.writeHead(500, { 'Content-Type': 'text/html' })
+                response.end('<h2>Server error</h2>');
+            } else {
+
+                response.writeHead(200, { 'Content-Type': 'application/json' })
+                response.end(JSON.stringify(paresBody));
+            }
+        })
     })
- })
 }
 
 
