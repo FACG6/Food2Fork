@@ -1,10 +1,14 @@
-const submitButton = document.querySelector(".submit");
-const input = document.querySelector('.input').value
-const render = (res)=>{
-    console.log(res);
+const submitButton = document.querySelector('.submitButton');
+let inputText =document.querySelector('.inputText');
+// const render = (res)=>{
+//     console.log(res);
     
-}
+// }
 submitButton.addEventListener("click", (e) => {
     e.preventDefault();
-    fetch('GET','/food', input, render )
+    textValue=inputText.value;
+    console.log(inputText.value);
+    fetch('POST','/food', textValue,(res)=>{
+        console.log(res);
+    } )
 })
