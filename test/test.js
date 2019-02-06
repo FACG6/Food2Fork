@@ -12,8 +12,9 @@ test('test home page', (t) => {
     .get('/')
     .expect(200)
     .expect('content-type', /html/)
-    .end((err) => {
+    .end((err, res) => {
       t.error(err);
+      t.equal(res.statusCode, 200, 'should equal 200');
       t.end();
     });
 });
@@ -24,8 +25,20 @@ test('test food page', (t) => {
     .send('cheese')
     .expect(200)
     .expect('content-type', /application/)
-    .end((err) => {
+    .end((err, res) => {
       t.error(err);
+      t.equal(res.statusCode, 200, 'should equal 200');
+      t.end();
+    });
+});
+test('test home page', (t) => {
+  supertest(router)
+    .get('/public/css/style.css')
+    .expect(200)
+    .expect('content-type', /css/)
+    .end((err, res) => {
+      t.error(err);
+      t.equal(res.statusCode, 200, 'should equal 200');
       t.end();
     });
 });
