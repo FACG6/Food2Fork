@@ -1,11 +1,16 @@
 const fetch = (method, url, valueText, callBack) => {
-    const http = new XMLHttpRequest();
-    http.onreadystatechange = () => {
-        if (http.readyState === 4 && http.status === 200) {
-            const respons = JSON.parse(http.responseText);
-            callBack(respons)
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        if (JSON.parse(xhr.responseText)) {
+          callBack(null, JSON.parse(xhr.response));
+        } else {
+          callBack(new TypeError('Error'));
         }
+      } else { callBack(new TypeError('Api is not responding')); }
     }
-    http.open(method, url)
-    http.send(valueText)
-}
+  };
+  xhr.open(method, url);
+  xhr.send(valueText);
+};
