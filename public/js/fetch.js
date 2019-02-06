@@ -1,12 +1,10 @@
-const fetch = (method, url, valueText ,callBack) =>{
+const fetch = (method, url, valueText, callBack) => {
     const http = new XMLHttpRequest();
-    http.onreadystatechange=()=>{
-        if(http.readyState === 4 && http.status === 200) {
-            const respons =JSON.parse(http.responseText)  ;
+    http.onreadystatechange = () => {
+        if (http.readyState === 4 && http.status === 200) {
+            const respons = JSON.parse(http.responseText);
             callBack(respons)
-        
         }
-
     }
     http.open(method, url)
     http.send(valueText)
