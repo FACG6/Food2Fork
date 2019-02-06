@@ -12,8 +12,6 @@ const makeNodes = (nodesName, nodesType) => {
   nodesName.forEach((name, index) => nodes[name] = document.createElement(nodesType[index]));
   return nodes;
 };
-// const { } = makeNodes([]);
-
 selectorsName = ['submitButton',
   'inputText',
   'contaner',
@@ -24,7 +22,6 @@ typeofQuerySelector = ['.submitButton',
   '.contaner',
   '.popUp',
 ];
-
 const {
   submitButton,
   inputText,
@@ -32,11 +29,10 @@ const {
   popUp,
 } = querySelectors(selectorsName, typeofQuerySelector);
 const render = (error, res) => {
-
-
-  
   const arrayFood = res.recipes;
-  console.log(arrayFood);
+  if (arrayFood.length === 0) {
+    contaner.appendChild(document.createTextNode('Enter Valid Value'));
+  }
   arrayFood.forEach((element) => {
     nodesName = ['foodContaner', 'title', 'img', 'link'];
     nodesType = ['div', 'h3', 'img', 'a'];
@@ -62,7 +58,9 @@ submitButton.addEventListener('click', (e) => {
   textValue = inputText.value.trim();
   if (textValue) {
     fetch('POST', '/food', textValue, render);
+    inputText.value = '';
   } else {
-    popUp.classList.add('popUpadd');
+    contaner.appendChild(document.createTextNode('Enter Valid Value'));
+    inputText.value = '';
   }
 });
