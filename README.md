@@ -7,8 +7,8 @@ https://food-fork.herokuapp.com/
 
 Our website that give you ability to enter any food type in the input which will give all title foods which conatin this word,the result contain title and image and link for the source.
 
-How ?
-We started with a simple plan to create web page which makes with ipute field and button in the front-end page which send request to server and callback result to front-end page.
+## How ?
+We started with a simple plan to create web page which makes with inpute field and button in the front-end page which send request to server and callback result to front-end page.
 
 ## Work Plan
 ### Day 1:
@@ -43,7 +43,7 @@ As a user Looking forward to enjoying and searching easy .
 As a user can enter any food type  name and display title and image of this type of food  .
 
 ### Hint:
-Please note that this site is under development so some animal name are not exist yet.
+Please note that this site is under development.
 
 ### WHO ARE WE ?
 * Abdallah Ammar.

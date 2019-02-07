@@ -2,22 +2,27 @@ const querySelectors = (selectorsName, typeofQuerySelector) => {
   if (selectorsName.length !== typeofQuerySelector.length) return 'Error';
   const elements = {};
   typeofQuerySelector.map(
-    (e, i) => (elements[selectorsName[i]] = document.querySelector(e)),
+    (e, i) => {
+      elements[selectorsName[i]] = document.querySelector(e);
+    },
   );
   return elements;
 };
 const makeNodes = (nodesName, nodesType) => {
   if (nodesName.length !== nodesType.length) return 'Error';
   const nodes = {};
-  nodesName.forEach((name, index) => nodes[name] = document.createElement(nodesType[index]));
+  nodesName.forEach((name, index) => {
+    nodes[name] = document.createElement(nodesType[index]);
+    return nodes;
+  });
   return nodes;
 };
-selectorsName = ['submitButton',
+const selectorsName = ['submitButton',
   'inputText',
   'contaner',
   'popUp',
 ];
-typeofQuerySelector = ['.submitButton',
+const typeofQuerySelector = ['.submitButton',
   '.inputText',
   '.contaner',
   '.popUp',
@@ -26,7 +31,7 @@ const {
   submitButton,
   inputText,
   contaner,
-  popUp,
+   popUp,
 } = querySelectors(selectorsName, typeofQuerySelector);
 const render = (error, res) => {
   const arrayFood = res.recipes;
@@ -34,8 +39,8 @@ const render = (error, res) => {
     contaner.appendChild(document.createTextNode('Enter Valid Value'));
   }
   arrayFood.forEach((element) => {
-    nodesName = ['foodContaner', 'title', 'img', 'link'];
-    nodesType = ['div', 'h3', 'img', 'a'];
+    const nodesName = ['foodContaner', 'title', 'img', 'link'];
+    const nodesType = ['div', 'h3', 'img', 'a'];
     const {
       foodContaner, title, img, link,
     } = makeNodes(nodesName, nodesType);
@@ -55,7 +60,7 @@ const render = (error, res) => {
 submitButton.addEventListener('click', (e) => {
   e.preventDefault();
   contaner.innerHTML = '';
-  textValue = inputText.value.trim();
+  const textValue = inputText.value.trim();
   if (textValue) {
     fetch('POST', '/food', textValue, render);
     inputText.value = '';

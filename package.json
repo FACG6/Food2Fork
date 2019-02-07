@@ -22,12 +22,12 @@
   "homepage": "https://github.com/FACG6/Food2Fork#readme",
   "dependencies": {
     "request": "^2.88.0",
-    "supertest": "^3.4.2",
-    "tap-spec": "^5.0.0",
-    "tape": "^4.9.2",
     "dotenv": "^6.2.0"
   },
   "devDependencies": {
+    "supertest": "^3.4.2",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.2",
     "eslint": "^5.13.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",

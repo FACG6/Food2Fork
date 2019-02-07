@@ -12,9 +12,8 @@ test('test home page', (t) => {
     .get('/')
     .expect(200)
     .expect('content-type', /html/)
-    .end((err, res) => {
+    .end((err) => {
       t.error(err);
-      t.equal(res.statusCode, 200, 'should equal 200');
       t.end();
     });
 });
@@ -25,20 +24,29 @@ test('test food page', (t) => {
     .send('cheese')
     .expect(200)
     .expect('content-type', /application/)
-    .end((err, res) => {
+    .end((err) => {
       t.error(err);
-      t.equal(res.statusCode, 200, 'should equal 200');
       t.end();
     });
 });
-test('test home page', (t) => {
+test('test publicHome page', (t) => {
   supertest(router)
     .get('/public/css/style.css')
     .expect(200)
     .expect('content-type', /css/)
+    .end((err) => {
+      t.error(err);
+      t.end();
+    });
+});
+test('test error page', (t) => {
+  supertest(router)
+    .get('/jj')
+    .expect(404)
+    .expect('content-type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.equal(res.statusCode, 200, 'should equal 200');
+      t.equal(res.text, '<h2>Error Page Not Found</h2>', 'test for error page in done ');
       t.end();
     });
 });
