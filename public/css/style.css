@@ -8,7 +8,7 @@ body{
     flex-wrap: wrap;
 }
 .card{
-    width: 20%;
+    min-width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +20,7 @@ body{
 
 }
 .image{
-   max-width:90%;
+   width:300px;
    max-height: 400px;
 }
 .nav{
