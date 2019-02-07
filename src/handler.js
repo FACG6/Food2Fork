@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 const fs = require('fs');
 const path = require('path');
 const requesthttp = require('request');
@@ -45,10 +44,6 @@ const handelHttpRequest = (request, response) => {
   });
   let paresBody = '';
   request.on('end', () => {
-    const convertedData = JSON.stringify(allData);
-    // console.log(allData)
-    // console.log(convertedData)
-
     requesthttp(`https://www.food2fork.com/api/search?key=${process.env.api_key}&q=${allData}`, (err, res, body) => {
       paresBody = JSON.parse(body);
       if (err) {
