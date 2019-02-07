@@ -46,7 +46,7 @@ test('test error page', (t) => {
     .expect('content-type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.equal(res.text, '<h2>Server error</h2>', 'test for error page in done ');
+      t.equal(res.text, '<h2>Error Page Not Found</h2>', 'test for error page in done ');
       t.end();
     });
 });

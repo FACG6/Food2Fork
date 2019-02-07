@@ -10,7 +10,7 @@ const router = (request, response) => {
     handelHttpRequest(request, response);
   } else {
     response.writeHead(404, { 'content-Type': 'text/html' });
-    response.end('<h2>Server error</h2>');
+    response.end('<h2>Error Page Not Found</h2>');
   }
 };
 module.exports = router;

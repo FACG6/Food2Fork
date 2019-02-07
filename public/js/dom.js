@@ -27,7 +27,6 @@ const typeofQuerySelector = ['.submitButton',
   '.contaner',
   '.popUp',
 ];
-
 const {
   submitButton,
   inputText,

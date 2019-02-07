@@ -56,8 +56,6 @@ const handelHttpRequest = (request, response) => {
     });
   });
 };
-
-
 module.exports = {
   handelHomePage,
   handelPublicPage,
